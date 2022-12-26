@@ -21,17 +21,18 @@ use ReflectionClass;
  * This is the service provider trait.
  *
  * @author Graham Campbell <graham@alt-three.com>
+ * @author James Brooks <james@alt-three.com>
  */
 trait ServiceProviderTrait
 {
     use LaravelTrait;
     use ProviderTrait;
 
-    protected function getServiceProviderClass()
+    protected function getServiceProviderClass($app)
     {
         $split = explode('\\', (new ReflectionClass($this))->getName());
         $class = substr(end($split), 0, -4);
 
-        return "{$split[0]}\\{$split[2]}\\Foundation\\Providers\\{$class}";
+        return "{$split[0]}\\{$split[2]}\\Providers\\{$class}";
     }
 }
