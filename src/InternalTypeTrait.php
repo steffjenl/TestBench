@@ -22,7 +22,7 @@ use PHPUnit\Framework\Assert;
  */
 trait InternalTypeTrait
 {
-    public static function assertIsArray($actual, $message = ''): void
+    public static function assertIsArrayTB($actual, $message = ''): void
     {
         if (is_callable([Assert::class, 'assertIsArray'])) {
             Assert::assertIsArray($actual, $message);
@@ -31,7 +31,7 @@ trait InternalTypeTrait
         }
     }
 
-    public static function assertIsString($actual, $message = ''): void
+    public static function assertIsStringTB($actual, $message = ''): void
     {
         if (is_callable([Assert::class, 'assertIsString'])) {
             Assert::assertIsString($actual, $message);

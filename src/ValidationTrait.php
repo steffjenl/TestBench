@@ -35,7 +35,7 @@ trait ValidationTrait
     {
         $this->assertTrue(property_exists($object, 'rules'));
 
-        $this->assertIsArray($object->rules);
+        $this->assertIsArrayTB($object->rules);
 
         foreach ($object->rules as $rule) {
             $this->checkRule($rule);

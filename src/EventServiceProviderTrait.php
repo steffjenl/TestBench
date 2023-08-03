@@ -44,7 +44,7 @@ trait EventServiceProviderTrait
     {
         $map = $this->getListenerMap();
 
-        $this->assertIsArray($map);
+        $this->assertIsArrayTB($map);
         $this->assertGreaterThan(0, count($map));
     }
 
