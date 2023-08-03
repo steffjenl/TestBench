@@ -28,5 +28,13 @@ trait ServiceProviderTrait
     use LaravelTrait;
     use ProviderTrait;
 
-    abstract protected static function getServiceProviderClass(): string;
+    protected static function getServiceProviderClass(): string
+    {
+        $class = static::getServiceProviderClass();
+        $reflection = new ReflectionClass($class);
+        $split = explode('\\', $reflection->getName());
+        $class = substr(end($split), 0, -4);
+
+        return "{$split[0]}\\{$split[2]}\\Providers\\{$class}";
+    }
 }
